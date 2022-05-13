@@ -10,20 +10,22 @@ class SessionController{
 
     const user = await User.findOne({ email });
 
+    
     if(!user){
       return res.status(401).json({ error: "User / passoword invalid." });
     }
-
+    
     if(!checkPassword(user, password)){
       return res.status(401).json({ error: "User / passoword invalid." });
     }
-
-    const { id } = user;
-
+    
+    const { id, name } = user;
+    
     return res.json({
       user: {
         id,
-        email
+        email,
+        name
       },
       token: jwt.sign({ id }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,

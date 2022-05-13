@@ -35,7 +35,7 @@ class UsersController{
   async create(req, res){
     try{
 
-      const { email, password } = req.body;
+      const { email, password, name } = req.body;
 
       const user = await User.findOne({ email });
 
@@ -48,6 +48,7 @@ class UsersController{
       const newUser = await User.create(
         {
           email,
+          name,
           password: encryptedPassword
         }
       );
@@ -64,7 +65,7 @@ class UsersController{
     try{
 
       const { id } = req.params;
-      const { email, password } = req.body;
+      const { email, password, name } = req.body;
 
       const user = await User.findById(id);
 
@@ -75,6 +76,7 @@ class UsersController{
       const encryptedPassword = await createPasswordHash(password);
       await user.updateOne({
         email,
+        name,
         password: encryptedPassword
       })
 

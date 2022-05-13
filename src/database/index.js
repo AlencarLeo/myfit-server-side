@@ -10,7 +10,9 @@ class Database{
         useNewUrlParser: true,
         useUnifiedTopology: true
       }
-    );
+    )
+    .then(() => console.log('database connect'))
+    .catch((err) => console.log(`database not connect, error: ${err}`))      
   }
 }
 
