@@ -10,8 +10,8 @@ const routes = new Router();
 
 // puclic routes
 routes.post('/sessions', SessionsController.create);
-routes.post('/users', UsersController.create);
 
+routes.post('/users', UsersController.create);
 // middleware
 routes.use(auth);
 

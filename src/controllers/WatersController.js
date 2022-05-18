@@ -5,7 +5,7 @@ class WatersController{
   async index(req, res){
     try{
 
-      const { user_id, id } = req.params;
+      const { user_id } = req.params;
 
       const user = await User.findById(user_id);
 
@@ -47,7 +47,8 @@ class WatersController{
       const newWaterInfo = await Water.create({
         progress,
         ml,
-        meta
+        meta,
+        userId: user_id
       })
 
       return res.json(newWaterInfo);
@@ -69,7 +70,8 @@ class WatersController{
       }
 
       const waterInfo = await Water.findOne({
-        userId: user_id
+        userId: user_id,
+        id
       })
       
       if(!waterInfo){
