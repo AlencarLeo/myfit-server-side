@@ -10,6 +10,10 @@ const waterSchema = new mongoose.Schema(
     },
     meta:{
       type: Number
+    },
+    userId: {  // permite criação desse dado mantendo a privacidade entre usuários
+      type: String,
+      required: true
     }
   }
 )

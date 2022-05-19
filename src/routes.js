@@ -28,4 +28,5 @@ routes.get('/users/:user_id/water', WatersController.index);
 routes.post('/users/:user_id/water', WatersController.create);
 routes.put('/users/:user_id/water/:id', WatersController.update);
 
+routes.put('/users/:user_id/water/:id', WatersController.destroy);
 export default routes;

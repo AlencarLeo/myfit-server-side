@@ -13,7 +13,7 @@ class WatersController{
         return res.status(404).json();
       }
 
-      const waterInfo = await Water.findOne({
+      const waterInfo = await Water.find({
         userId: user_id
       })
       
@@ -85,6 +85,33 @@ class WatersController{
       })
 
       return res.status(200).json(waterInfo);
+    }catch(err){
+      console.error(err);
+      return res.status(500).json({ error: "Internal server error." })
+    }
+  }
+
+  async destroy(req, res){
+    try{
+      const {user_id, id} = req.params;
+
+      const user = await User.findById(user_id);
+
+      if(!user){
+        return res.status(404).json();
+      }
+
+      const waterInfo = await Water.findOne({
+        userId: user_id,
+        id
+      })
+
+      if(!waterInfo){
+        return res.status(404).json();
+      }
+
+      await waterInfo.deleteOne();
+
     }catch(err){
       console.error(err);
       return res.status(500).json({ error: "Internal server error." })
