@@ -13,7 +13,7 @@ class WatersController{
         return res.status(404).json();
       }
 
-      const waterInfo = await Water.find({
+      const waterInfo = await Water.findOne({
         userId: user_id
       })
       
@@ -43,7 +43,7 @@ class WatersController{
       if(waterInfo){
         return res.status(422).json();
       }
-      
+
       const newWaterInfo = await Water.create({
         progress,
         ml,
