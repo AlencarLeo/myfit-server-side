@@ -91,32 +91,32 @@ class WatersController{
     }
   }
 
-  async destroy(req, res){
-    try{
-      const {user_id, id} = req.params;
+  // async destroy(req, res){
+  //   try{
+  //     const {user_id, id} = req.params;
 
-      const user = await User.findById(user_id);
+  //     const user = await User.findById(user_id);
 
-      if(!user){
-        return res.status(404).json();
-      }
+  //     if(!user){
+  //       return res.status(404).json();
+  //     }
 
-      const waterInfo = await Water.findOne({
-        userId: user_id,
-        id
-      })
+  //     const waterInfo = await Water.findOne({
+  //       userId: user_id,
+  //       id
+  //     })
 
-      if(!waterInfo){
-        return res.status(404).json();
-      }
+  //     if(!waterInfo){
+  //       return res.status(404).json();
+  //     }
 
-      await waterInfo.deleteOne();
+  //     await waterInfo.deleteOne();
 
-    }catch(err){
-      console.error(err);
-      return res.status(500).json({ error: "Internal server error." })
-    }
-  }
+  //   }catch(err){
+  //     console.error(err);
+  //     return res.status(500).json({ error: "Internal server error." })
+  //   }
+  // }
 }
 
 export default new WatersController();

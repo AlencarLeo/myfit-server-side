@@ -24,9 +24,12 @@ routes.put('/users/:id', UsersController.update);
 routes.delete('/users/:id', UsersController.destroy);
 
 // INFOS
+//WATER
 routes.get('/users/:user_id/water', WatersController.index);
 routes.post('/users/:user_id/water', WatersController.create);
 routes.put('/users/:user_id/water/:id', WatersController.update);
 
-routes.put('/users/:user_id/water/:id', WatersController.destroy);
+//CARB
+routes.get('/users/:user_id/carb', WatersController.index);
+
 export default routes;
