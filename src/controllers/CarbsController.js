@@ -78,7 +78,7 @@ class CarbsController{
 
       await carbInfo.updateOne({
         progress,
-        ml,
+        g,
         meta
       })
 

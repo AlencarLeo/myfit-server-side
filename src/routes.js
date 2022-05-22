@@ -5,6 +5,7 @@ import auth from './middlewares/auth'
 import UsersController from './controllers/UsersController';
 import SessionsController from './controllers/SessionsController';
 import WatersController from "./controllers/WatersController";
+import CarbsController from "./controllers/CarbsController";
 
 const routes = new Router();
 
@@ -30,6 +31,8 @@ routes.post('/users/:user_id/water', WatersController.create);
 routes.put('/users/:user_id/water/:id', WatersController.update);
 
 //CARB
-routes.get('/users/:user_id/carb', WatersController.index);
+routes.get('/users/:user_id/carb', CarbsController.index);
+routes.post('/users/:user_id/carb', CarbsController.create);
+routes.put('/users/:user_id/carb/:id', CarbsController.update);
 
 export default routes;
