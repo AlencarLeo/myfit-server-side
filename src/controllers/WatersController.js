@@ -28,8 +28,7 @@ class WatersController{
     try{
 
       const { user_id } = req.params;
-      const { ml, meta } = req.body;
-      const progress = (100 * ml) / meta;
+      const { progress, ml, meta } = req.body;
 
       const user = await User.findById(user_id);
 
@@ -63,9 +62,7 @@ class WatersController{
     try{
 
       const { user_id, id } = req.params;
-      const { ml, meta } = req.body;
-      const progress = (100 * ml) / meta;
-
+      const { progress, ml, meta } = req.body;
       const user = await User.findById(user_id);
       
       if(!user){

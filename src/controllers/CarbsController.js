@@ -39,7 +39,7 @@ class CarbsController{
         userId: user_id
       })
 
-      if(!carbInfo){
+      if(carbInfo){
         return res.status(422).json();
       }
 
