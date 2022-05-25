@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const carbSchema = mongoose.Schema(
   {
     progress:{
-      type: Number
+      type: Number | NaN
     },
     g:{
       type: Number

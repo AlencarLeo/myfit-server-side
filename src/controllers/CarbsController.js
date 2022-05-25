@@ -26,7 +26,8 @@ class CarbsController{
   async create(req, res){
     try{
       const { user_id } = req.params;
-      const { progress, g, meta } = req.body;
+      const { g, meta } = req.body;
+      const progress = (100 * g) / meta;
 
       const user = await User.findById(user_id);
     
@@ -38,7 +39,7 @@ class CarbsController{
         userId: user_id
       })
 
-      if(carbInfo){
+      if(!carbInfo){
         return res.status(422).json();
       }
 
