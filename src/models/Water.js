@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const waterSchema = new mongoose.Schema(
   {
     progress:{
-      type: Number | NaN
+      type: Number
     },
     ml:{
       type: Number
