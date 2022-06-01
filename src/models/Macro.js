@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const carbSchema = mongoose.Schema(
+const macroSchema = mongoose.Schema(
   {
     macro:{
       carb:{
@@ -26,4 +26,4 @@ const carbSchema = mongoose.Schema(
   }
 )
 
-export default mongoose.model("Carb", carbSchema);;
+export default mongoose.model("Macro", macroSchema);

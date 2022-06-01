@@ -33,5 +33,6 @@ routes.put('/users/:user_id/water/:id', WatersController.update);
 //MACRO
 routes.get('/users/:user_id/macro', MacrosController.index);
 routes.post('/users/:user_id/macro', MacrosController.create);
+routes.put('/users/:user_id/macro/:id', MacrosController.update);
 
 export default routes;
