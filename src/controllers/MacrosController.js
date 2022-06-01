@@ -29,7 +29,13 @@ class MacrosController{
       const {  
         progressCarb,
         gCarb,
-        metaCarb
+        metaCarb,
+        progressProtein,
+        gProtein,
+        metaProtein,
+        progressFat,
+        gFat,
+        metaFat
       } = req.body;
 
       const user = await User.findById(user_id);
@@ -54,14 +60,14 @@ class MacrosController{
             meta: metaCarb
           },
           protein:{
-            progress: progressCarb,
-            g: gCarb,
-            meta: metaCarb
+            progress: progressProtein,
+            g: gProtein,
+            meta: metaProtein
           },
           fat:{
-            progress: progressCarb,
-            g: gCarb,
-            meta: metaCarb
+            progress: progressFat,
+            g: gFat,
+            meta: metaFat
           }
         },
         userId: user_id
