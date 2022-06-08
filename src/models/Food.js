@@ -2,13 +2,31 @@ import mongoose from "mongoose";
 
 const foodSchema = mongoose.Schema(
   {
-    name: String,
-    qntd: Number,
+    name: {
+      type: String,
+      required: true,
+    },
+    qntd: {
+      type: String,
+      required: true,
+    },
     info:{
-      carb: Number,
-      protein: Number,
-      fat: Number,
-      kcal: Number
+      carb: {
+        type: String,
+        required: true,
+      },
+      protein: {
+        type: String,
+        required: true,
+      },
+      fat: {
+        type: String,
+        required: true,
+      },
+      kcal: {
+        type: String,
+        required: true,
+      },
     }
   },
   {

@@ -41,7 +41,7 @@ class FoodsController{
         kcal
       } = req.body;
 
-      const food = await User.findOne({ name });
+      const food = await Food.findOne({ name });
 
       if(food){
         return res.status(422).json({ message: `User ${food} already exists.` })
@@ -51,10 +51,12 @@ class FoodsController{
         {
           name,
           qntd,
-          carb,
-          protein,
-          fat,
-          kcal
+          info:{
+            carb,
+            protein,
+            fat,
+            kcal
+          }
         }
       );
 
@@ -85,13 +87,15 @@ class FoodsController{
         return res.status(404).json();
       }
 
-      await food.updateOne({  
+      await food.updateOne({
         name,
         qntd,
-        carb,
-        protein,
-        fat,
-        kcal
+        info:{
+          carb,
+          protein,
+          fat,
+          kcal
+        }
       });
 
       return res.status(200).json(food);
