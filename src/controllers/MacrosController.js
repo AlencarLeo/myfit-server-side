@@ -95,42 +95,42 @@ class MacrosController{
         metaFat
       } = req.body;
 
-      // const user = User.findById(user_id)
+      const user = User.findById(user_id)
 
-      // if(!user){
-      //   return res.status(404).json();
-      // }
+      if(!user){
+        return res.status(404).json();
+      }
 
-      // const macroInfo = Macro.findOne({
-      //   userId: user_id,
-      //   id
-      // })
+      const macroInfo = Macro.findOne({
+        userId: user_id,
+        id
+      })
 
-      // if(!macroInfo){
-      //   return res.status(404).json();
-      // }
+      if(!macroInfo){
+        return res.status(404).json();
+      }
 
-      // await macroInfo.updateOne({
-      //   macro:{
-      //     carb:{
-      //       progress: progressCarb,
-      //       g: gCarb,
-      //       meta: metaCarb
-      //     },
-      //     protein:{
-      //       progress: progressProtein,
-      //       g: gProtein,
-      //       meta: metaProtein
-      //     },
-      //     fat:{
-      //       progress: progressFat,
-      //       g: gFat,
-      //       meta: metaFat
-      //     }
-      //   }
-      // })
+      await macroInfo.updateOne({
+        macro:{
+          carb:{
+            progress: progressCarb,
+            g: gCarb,
+            meta: metaCarb
+          },
+          protein:{
+            progress: progressProtein,
+            g: gProtein,
+            meta: metaProtein
+          },
+          fat:{
+            progress: progressFat,
+            g: gFat,
+            meta: metaFat
+          }
+        }
+      })
 
-      // return res.status(200).json(macroInfo);
+      return res.status(200).json(macroInfo);
     }catch(err){
       console.error(err);
       return res.status(500).json({ error: "Internal server error." });
